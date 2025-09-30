@@ -170,7 +170,7 @@ A comprehensive notes management application demonstrating modern full-stack dev
    Frontend:     http://localhost:8080
    API:          http://localhost:8080/api
    Health Check: http://localhost:8080/health
-   Metrics:      http://localhost:8080/metrics
+   Metrics:      http://localhost:8080/api/health/metrics
    ```
 
 ## 📋 Complete API Documentation
