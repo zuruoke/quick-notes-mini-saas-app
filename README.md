@@ -140,7 +140,7 @@ A comprehensive notes management application demonstrating modern full-stack dev
 - 4GB+ RAM for full stack deployment
 ```
 
-### 🐳 Production Deployment (Recommended)
+### 🐳 How To Run (Setup Instructions)
 
 1. **Clone and Configure**
    ```bash
@@ -167,43 +167,10 @@ A comprehensive notes management application demonstrating modern full-stack dev
 3. **Access the Application**
    ```bash
    # Application URLs
-   Frontend:     http://localhost:3000
+   Frontend:     http://localhost:8080
    API:          http://localhost:8080/api
    Health Check: http://localhost:8080/health
    Metrics:      http://localhost:8080/metrics
-   ```
-
-### 💻 Development Setup
-
-1. **Backend Development**
-   ```bash
-   cd backend
-   npm install
-   cp .env.example .env
-   
-   # Database setup
-   npx prisma generate
-   npx prisma db push
-   
-   # Start development server
-   npm run start:dev
-   # API available at http://localhost:3001
-   ```
-
-2. **Frontend Development**
-   ```bash
-   cd frontend
-   npm install
-   
-   # Start development server
-   npm run dev
-   # Frontend available at http://localhost:5173
-   ```
-
-3. **Database & Cache (Docker)**
-   ```bash
-   # Start only database and Redis for development
-   docker-compose up postgres redis -d
    ```
 
 ## 📋 Complete API Documentation
