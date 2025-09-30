@@ -5,6 +5,52 @@
 
 A comprehensive notes management application demonstrating modern full-stack development practices, containerization, orchestration, and scalable architecture design.
 
+## 📋 Table of Contents
+
+- [🎯 Assignment Requirements Fulfilled](#-assignment-requirements-fulfilled)
+- [🏗️ System Architecture](#️-system-architecture)
+  - [High-Level Architecture Diagram](#high-level-architecture-diagram)
+  - [User Journey & System Flow](#user-journey--system-flow)
+- [🧠 Architecture Decisions & Trade-offs](#-architecture-decisions--trade-offs)
+- [🔧 Technical Implementation Details](#-technical-implementation-details)
+- [🚀 Quick Start & Setup Instructions](#-quick-start--setup-instructions)
+  - [Prerequisites](#prerequisites)
+  - [🐳 How To Run (Setup Instructions)](#-how-to-run-setup-instructions)
+- [📋 Complete API Documentation](#-complete-api-documentation)
+  - [Authentication Endpoints](#authentication-endpoints)
+  - [Notes Endpoints](#notes-endpoints)
+  - [Health & Monitoring Endpoints](#health--monitoring-endpoints)
+  - [Query Parameters Details](#query-parameters-details)
+  - [Example API Requests](#example-api-requests)
+- [📁 Project Structure](#-project-structure)
+- [🔧 Available Commands](#-available-commands)
+  - [Deployment Script](#deployment-script)
+  - [Docker Swarm Commands](#docker-swarm-commands)
+- [🏭 Production Configuration](#-production-configuration)
+  - [Scaling Configuration](#scaling-configuration)
+  - [Resource Limits](#resource-limits)
+  - [Health Checks](#health-checks)
+- [🔒 Security Features](#-security-features)
+- [📊 Monitoring](#-monitoring)
+  - [Built-in Endpoints](#built-in-endpoints)
+  - [Optional Monitoring Stack](#optional-monitoring-stack)
+- [🔄 CI/CD Integration](#-cicd-integration)
+  - [Example GitHub Actions](#example-github-actions)
+- [🐛 Troubleshooting](#-troubleshooting)
+  - [Common Issues](#common-issues)
+  - [Logs and Debugging](#logs-and-debugging)
+- [📝 API Documentation](#-api-documentation)
+  - [Authentication Endpoints](#authentication-endpoints-1)
+  - [Notes Endpoints](#notes-endpoints-1)
+  - [Query Parameters](#query-parameters)
+- [📸 Application Screenshots](#-application-screenshots)
+  - [Login Page](#login-page)
+  - [Registration Page](#registration-page)
+  - [Dashboard - Empty State](#dashboard---empty-state)
+  - [Dashboard - With Notes](#dashboard---with-notes)
+- [🚀 Future Enhancements](#-future-enhancements)
+- [📄 License](#-license)
+
 ## 🎯 Assignment Requirements Fulfilled
 
 ✅ **User Management**: Email/password authentication with JWT  
