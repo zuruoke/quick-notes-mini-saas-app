@@ -509,72 +509,6 @@ curl http://localhost:3000/health
 - `search`: Search in title and content
 - `tags`: Filter by tags (comma-separated)
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## ✅ Assignment Requirements Fulfilled
-
-### Core Requirements ✓
-- ✅ **Source Code**: Complete backend (NestJS) and frontend (React) implementation
-- ✅ **Docker Configuration**: `docker-compose.yml` with production-ready setup
-- ✅ **Environment Template**: Comprehensive `.env.example` with all required variables
-- ✅ **README Documentation**: Detailed setup instructions, API documentation, and architecture explanation
-- ✅ **Setup Instructions**: Both production deployment and development environment guides
-- ✅ **API Documentation**: Complete endpoint listing with examples and query parameters
-- ✅ **Architecture Explanation**: In-depth analysis of design decisions and trade-offs
-
-### Bonus Features Implemented ✓
-- ✅ **Advanced Authentication**: JWT with refresh tokens and secure logout
-- ✅ **Caching Strategy**: Redis implementation for performance optimization
-- ✅ **Health Monitoring**: Comprehensive health checks and metrics
-- ✅ **Modern UI/UX**: Glassmorphism design with responsive layout
-- ✅ **Search & Filtering**: Advanced note search with tag-based filtering
-- ✅ **Pagination**: Efficient data loading with configurable page sizes
-- ✅ **Error Handling**: Comprehensive error management and user feedback
-- ✅ **Security Best Practices**: Input validation, CORS, rate limiting considerations
-- ✅ **Scalable Architecture**: Docker Swarm with load balancing and replica management
-- ✅ **Production Ready**: NGINX reverse proxy, environment-based configuration
-
-## 📊 Architecture Flow Diagrams
-
-### System Architecture Overview
-
-<img width="3840" height="2120" alt="QuickNotes System Architecture Diagram" src="https://github.com/user-attachments/assets/29bc9961-b2f5-40ce-bf62-c62ca1dd49ef" />
-
-*Comprehensive system architecture showing Docker Swarm orchestration, load balancing, and data flow*
-
-### User Journey & System Flow (UML Sequence Diagram)
-
-<img width="3202" height="3840" alt="QuickNotes User Journey UML Sequence Diagram" src="https://github.com/user-attachments/assets/6ff1f4cc-eb94-497e-8ca7-4921febc2b16" />
-
-*Detailed UML sequence diagram showing user registration, authentication, notes management, and system interactions with caching strategy*
-
-### Docker Swarm Architecture Rationale
-
-**Why Docker Swarm over Kubernetes?**
-
-1. **Simplicity**: Docker Swarm provides built-in orchestration without the complexity of Kubernetes
-2. **Resource Efficiency**: Lower overhead for small to medium-scale applications
-3. **Native Docker Integration**: Seamless integration with existing Docker workflows
-4. **Rapid Deployment**: Faster setup and deployment cycles
-5. **Built-in Load Balancing**: Automatic service discovery and load balancing
-6. **Rolling Updates**: Zero-downtime deployments with automatic rollback capabilities
-
-**Traefik Consideration**:
-While NGINX serves as our current load balancer, **Traefik** was considered for advanced traffic management features:
-- Automatic service discovery
-- Dynamic configuration updates
-- Advanced routing rules
-- Built-in SSL certificate management
-- Better integration with container orchestration
-
-*Traefik could replace NGINX in future iterations for more sophisticated traffic routing and microservices management.*
-
 ## 📸 Application Screenshots
 
 ### Login Page
@@ -612,11 +546,10 @@ While NGINX serves as our current load balancer, **Traefik** was considered for 
 - **Traefik Migration**: Replace NGINX with Traefik for advanced traffic management
 - **Kubernetes Migration**: Scale to Kubernetes for enterprise-level orchestration
 
----
 
 **Built with ❤️ by a Senior Developer who values clean architecture, scalable solutions, and thoughtful engineering decisions.**
 
-*This project demonstrates proficiency in modern full-stack development, containerization, orchestration, and production-ready system design within a 4-hour development window.*
+*This project demonstrates proficiency in modern full-stack development, containerization, orchestration, and production-ready system design*
 
 ## 📄 License
 
