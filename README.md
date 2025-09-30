@@ -22,116 +22,15 @@ A comprehensive notes management application demonstrating modern full-stack dev
 
 ### High-Level Architecture Diagram
 
-```mermaid
-graph TB
-    subgraph "Client Layer"
-        U[User Browser]
-    end
-    
-    subgraph "Load Balancer Layer"
-        LB[NGINX Load Balancer<br/>Port 8080]
-    end
-    
-    subgraph "Application Layer"
-        FE1[Frontend Instance 1<br/>React + Vite]
-        FE2[Frontend Instance 2<br/>React + Vite]
-        API1[API Instance 1<br/>NestJS + Node.js]
-        API2[API Instance 2<br/>NestJS + Node.js]
-        API3[API Instance 3<br/>NestJS + Node.js]
-    end
-    
-    subgraph "Data Layer"
-        PG[(PostgreSQL<br/>Primary Database)]
-        RD[(Redis<br/>Cache Layer)]
-    end
-    
-    subgraph "Monitoring"
-        HC[Health Checks]
-        PM[Prometheus Metrics]
-    end
-    
-    U --> LB
-    LB --> FE1
-    LB --> FE2
-    LB --> API1
-    LB --> API2
-    LB --> API3
-    
-    API1 --> PG
-    API2 --> PG
-    API3 --> PG
-    
-    API1 --> RD
-    API2 --> RD
-    API3 --> RD
-    
-    API1 --> HC
-    API2 --> HC
-    API3 --> HC
-    
-    API1 --> PM
-    API2 --> PM
-    API3 --> PM
-    
-    style U fill:#e1f5fe
-    style LB fill:#f3e5f5
-    style PG fill:#e8f5e8
-    style RD fill:#fff3e0
-    style HC fill:#fce4ec
-    style PM fill:#f1f8e9
-```
+<img width="3840" height="2120" alt="QuickNotes System Architecture Diagram" src="https://github.com/user-attachments/assets/29bc9961-b2f5-40ce-bf62-c62ca1dd49ef" />
+
+*Comprehensive system architecture showing Docker Swarm orchestration, load balancing, and data flow*
 
 ### User Journey & System Flow
 
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant LB as NGINX Load Balancer
-    participant API as API Instance
-    participant R as Redis Cache
-    participant DB as PostgreSQL
-    participant FE as Frontend
-    
-    Note over U,DB: User Registration/Login Flow
-    U->>+LB: POST /api/auth/register
-    LB->>+API: Route to available API instance
-    API->>+DB: Store user credentials (hashed)
-    DB-->>-API: User created
-    API->>API: Generate JWT tokens
-    API-->>-LB: Return tokens + user data
-    LB-->>-U: Authentication response
-    
-    Note over U,DB: Notes Creation Flow
-    U->>+LB: POST /api/notes (with JWT)
-    LB->>+API: Route with load balancing
-    API->>API: Validate JWT & extract user
-    API->>+DB: INSERT note with user_id
-    DB-->>-API: Note created with ID
-    API->>+R: INVALIDATE user's cached queries
-    R-->>-API: Cache cleared
-    API-->>-LB: Return created note
-    LB-->>-U: Note creation response
-    
-    Note over U,DB: Search & Caching Flow
-    U->>+LB: GET /api/notes?tags=work,urgent
-    LB->>+API: Route to least loaded instance
-    API->>+R: CHECK cache key: user:123:tags:work,urgent
-    R-->>-API: Cache MISS
-    API->>+DB: SELECT notes WHERE user_id AND tags
-    DB-->>-API: Filtered notes result
-    API->>+R: CACHE result for 5 minutes
-    R-->>-API: Cached successfully
-    API-->>-LB: Return search results
-    LB-->>-U: Cached search response
-    
-    Note over U,DB: Subsequent Search (Cache Hit)
-    U->>+LB: GET /api/notes?tags=work,urgent
-    LB->>+API: Route to different instance
-    API->>+R: CHECK cache key: user:123:tags:work,urgent
-    R-->>-API: Cache HIT - return cached data
-    API-->>-LB: Return cached results (fast)
-    LB-->>-U: Instant response
-```
+<img width="3202" height="3840" alt="QuickNotes User Journey UML Sequence Diagram" src="https://github.com/user-attachments/assets/6ff1f4cc-eb94-497e-8ca7-4921febc2b16" />
+
+*Detailed UML sequence diagram showing user registration, authentication, notes management, and system interactions with caching strategy*
 
 ## 🧠 Architecture Decisions & Trade-offs
 
