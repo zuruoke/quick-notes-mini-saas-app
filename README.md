@@ -1,6 +1,6 @@
 # QuickNotes - Mini SaaS Application
 
-> **Assignment Completion Time**: 4 hours  
+> **Assignment Completion Time**: 3.4 hours  
 > **Focus**: Core functionality with production-ready architecture and scalability considerations
 
 A comprehensive notes management application demonstrating modern full-stack development practices, containerization, orchestration, and scalable architecture design.
@@ -34,10 +34,11 @@ A comprehensive notes management application demonstrating modern full-stack dev
 
 ## 🧠 Architecture Decisions & Trade-offs
 
-### 1. **Docker Swarm vs Kubernetes**
+### 1. **Docker Swarm for Replica Scaling**
 **Decision**: Docker Swarm  
 **Reasoning**: 
 - **Simplicity**: Swarm provides built-in orchestration without additional complexity
+- **Scalability For Replicas**: With Swarm's built-in load balancing, the system can easily scale to handle increased traffic and user load.
 - **Resource Efficiency**: Lower overhead compared to K8s for small-scale deployments
 - **Native Docker Integration**: Seamless integration with existing Docker workflow
 - **Rapid Development**: Faster setup and deployment for MVP/prototype scenarios
