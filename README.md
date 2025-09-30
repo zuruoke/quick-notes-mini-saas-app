@@ -203,9 +203,6 @@ A comprehensive notes management application demonstrating modern full-stack dev
    # Make deploy script executable
    chmod +x deploy.sh
    
-   # Initialize Docker Swarm (if not already done)
-   docker swarm init
-   
    # Deploy the complete stack
    ./deploy.sh deploy
    
