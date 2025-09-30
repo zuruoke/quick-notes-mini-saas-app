@@ -32,8 +32,6 @@ export class NotesService {
         userId,
       },
     });
-
-    // Invalidate user's notes cache
     await this.cacheService.invalidateUserNotesCache(userId);
 
     return note;
@@ -42,10 +40,8 @@ export class NotesService {
   async findAll(userId: string, queryDto: QueryNotesDto): Promise<PaginatedNotes> {
     const { search, tags, page = 1, limit = 10 } = queryDto;
     
-    // Generate cache key for this search
     const cacheKey = this.cacheService.generateNotesSearchKey(userId, search, tags, page, limit);
     
-    // Try to get from cache first
     const cachedResult = await this.cacheService.get<PaginatedNotes>(cacheKey);
     if (cachedResult) {
       return cachedResult;
@@ -88,7 +84,6 @@ export class NotesService {
       totalPages: Math.ceil(total / limit),
     };
 
-    // Cache the result for 5 minutes
     await this.cacheService.set(cacheKey, result, 300);
 
     return result;
@@ -111,27 +106,25 @@ export class NotesService {
   }
 
   async update(id: string, userId: string, updateNoteDto: UpdateNoteDto): Promise<Note> {
-    await this.findOne(id, userId); // Check if note exists and user has access
+    await this.findOne(id, userId);
 
     const note = await this.prisma.note.update({
       where: { id },
       data: updateNoteDto,
     });
 
-    // Invalidate user's notes cache
     await this.cacheService.invalidateUserNotesCache(userId);
 
     return note;
   }
 
   async remove(id: string, userId: string): Promise<void> {
-    await this.findOne(id, userId); // Check if note exists and user has access
+    await this.findOne(id, userId);
 
     await this.prisma.note.delete({
       where: { id },
     });
 
-    // Invalidate user's notes cache
     await this.cacheService.invalidateUserNotesCache(userId);
   }
 
